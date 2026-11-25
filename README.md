@@ -1,5 +1,7 @@
 # Pixel Decoder · by Mr. Pixel
 
+🌐 **https://mrpixeldecoder.github.io/**
+
 Codifica y decodifica links y texto en **Base64** o **URL (%)**, gratis y 100% en el navegador.
 Es un sitio estático (HTML + CSS + JS, sin servidor ni dependencias), listo para GitHub Pages.
 
