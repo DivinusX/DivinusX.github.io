@@ -152,3 +152,19 @@
   if (pre) input.value = pre;
   sync(); run();
 })();
+
+// ---------- contador de visitas (Abacus, solo cuenta 1 vez por sesión) ----------
+(function () {
+  const box = document.getElementById('visits');
+  const num = document.getElementById('visitsNum');
+  if (!box || !num) return;
+  let counted = false;
+  try { counted = sessionStorage.getItem('pd-visit') === '1'; } catch (e) {}
+  const url = 'https://abacus.jasoncameron.dev/' + (counted ? 'get' : 'hit') + '/mrpixeldecoder/visits';
+  fetch(url).then(r => r.ok ? r.json() : Promise.reject()).then(d => {
+    if (typeof d.value !== 'number') return;
+    try { sessionStorage.setItem('pd-visit', '1'); } catch (e) {}
+    num.textContent = d.value.toLocaleString('es-ES');
+    box.hidden = false;
+  }).catch(() => {});
+})();

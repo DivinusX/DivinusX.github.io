@@ -146,6 +146,13 @@ body.fmt-url .only-b64 { display: none; }
 .foot { text-align: center; padding: 4px 16px 36px; }
 .foot p { margin: 4px 0; font-weight: 600; }
 .foot a { color: var(--red); font-weight: 800; }
+.visits {
+  display: inline-block; margin: 10px 0 6px !important; padding: 6px 16px; border-radius: 999px;
+  background: var(--ink); color: #fff3d8; font-family: 'Courier Prime', monospace; font-size: .95rem;
+  box-shadow: 3px 3px 0 var(--red);
+}
+.visits[hidden] { display: none; }
+.visits b { font-size: 1.05rem; letter-spacing: 1px; }
 .foot__small { font-size: .85rem; color: var(--ink-soft); }
 
 .toast {
