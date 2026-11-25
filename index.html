@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pixel Decoder · Codifica y decodifica links en Base64</title>
+  <meta name="description" content="Codifica y decodifica links en Base64 o formato URL, gratis y al instante. Todo ocurre en tu navegador.">
+  <meta name="theme-color" content="#efdfc2">
+  <meta property="og:title" content="Pixel Decoder · by Mr. Pixel">
+  <meta property="og:description" content="Codifica y decodifica links en Base64, gratis y 100% en tu navegador.">
+  <meta property="og:image" content="assets/og.jpg">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Rubik:wght@400;500;700;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="mode-decode">
+  <div class="paper" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="hero__sun" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <img class="hero__mascot" src="assets/mrpixel.webp" width="200" height="200" alt="Mr. Pixel, una rana caricaturesca con gorra que levanta el pulgar">
+      <div>
+        <h1 class="logo">Pixel <span>Decoder</span></h1>
+        <p class="tagline">Codifica y decodifica links en Base64. Gratis y sin enviar nada a ningún servidor.</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <a class="discord-mini" href="https://discord.gg/MxjpNs7cCk" target="_blank" rel="noopener">💬 Discord</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar a modo noche">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="card tool" aria-label="Codificador y decodificador">
+      <div class="tool__top">
+        <div class="seg" role="tablist" aria-label="Acción">
+          <button role="tab" class="seg__btn" data-mode="encode" aria-selected="false">Codificar</button>
+          <button role="tab" class="seg__btn is-on" data-mode="decode" aria-selected="true">Decodificar</button>
+        </div>
+        <div class="seg seg--small" role="tablist" aria-label="Formato">
+          <button role="tab" class="seg__btn is-on" data-format="b64" aria-selected="true">Base64</button>
+          <button role="tab" class="seg__btn" data-format="url" aria-selected="false">URL %</button>
+        </div>
+      </div>
+
+      <label class="field">
+        <span class="field__label" id="inLabel">Pega aquí el texto en Base64</span>
+        <textarea id="input" spellcheck="false" autocomplete="off" placeholder="aHR0cHM6Ly93d3cueW91dHViZS5jb20v…"></textarea>
+        <span class="field__meta"><span id="inCount">0 caracteres</span><button class="link-btn" id="pasteBtn" type="button">📋 Pegar</button><button class="link-btn" id="clearBtn" type="button">✖ Limpiar</button></span>
+      </label>
+
+      <div class="buddy" aria-live="polite">
+        <img src="assets/face.png" width="56" height="56" alt="">
+        <p class="bubble" id="bubble">¡Hola! Pega un link codificado y lo destapo al instante. 👍</p>
+      </div>
+
+      <label class="field">
+        <span class="field__label">Resultado</span>
+        <textarea id="output" spellcheck="false" readonly placeholder="Aquí aparece el resultado…"></textarea>
+        <span class="field__meta">
+          <span id="outCount"></span>
+          <button class="link-btn" id="swapBtn" type="button">⇅ Usar como entrada</button>
+          <button class="btn" id="copyBtn" type="button">📄 Copiar</button>
+        </span>
+      </label>
+
+      <div class="links" id="links" hidden>
+        <p class="links__title">🔗 Links encontrados</p>
+        <ul id="linkList"></ul>
+        <p class="links__warn">Revisa el destino antes de abrirlo.</p>
+      </div>
+
+      <label class="chip only-b64"><input type="checkbox" id="optLines"><span>Varias líneas: procesar cada una por separado</span></label>
+    </section>
+
+    <section class="discord" aria-label="Discord de Mr. Pixel">
+      <img src="assets/face.png" width="72" height="72" alt="">
+      <div>
+        <h2>¿Dudas o quieres más herramientas?</h2>
+        <p>Únete al Discord de Mr. Pixel y hablemos de juegos, mods y tutoriales.</p>
+      </div>
+      <a class="btn btn--discord" href="https://discord.gg/MxjpNs7cCk" target="_blank" rel="noopener">Unirme al Discord</a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Hecho con 💚 por <b>Mr. Pixel</b> · <a href="https://discord.gg/MxjpNs7cCk" target="_blank" rel="noopener">discord.gg/MxjpNs7cCk</a></p>
+    <p class="foot__small">Todo se procesa en tu navegador. Ojo: Base64 no es cifrado, cualquiera puede decodificarlo.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
