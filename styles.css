@@ -69,7 +69,15 @@ header, main, footer { position: relative; z-index: 1; }
   height: 44px; border-radius: 12px; border: 3px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); cursor: pointer;
 }
 .theme-toggle { width: 44px; background: var(--card); font-size: 1.2rem; }
-.discord-mini { display: inline-flex; align-items: center; padding: 0 14px; background: var(--discord); color: #fff; font-weight: 800; text-decoration: none; }
+.discord-mini { white-space: nowrap; display: inline-flex; align-items: center; padding: 0 14px; background: var(--discord); color: #fff; font-weight: 800; text-decoration: none; }
+.visits {
+  height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; border-radius: 12px;
+  border: 3px solid var(--ink); box-shadow: 3px 3px 0 var(--red); background: var(--ink); color: #fff3d8;
+  font-family: 'Courier Prime', monospace; font-weight: 700; font-size: .95rem; white-space: nowrap;
+}
+.visits[hidden] { display: none; }
+.visits b { font-size: 1.05rem; letter-spacing: 1px; }
+@media (max-width: 400px) { .visits__label { display: none; } }
 .theme-toggle:active, .discord-mini:active { transform: translate(3px, 3px); box-shadow: none; }
 
 /* ---------- card ---------- */
@@ -146,13 +154,6 @@ body.fmt-url .only-b64 { display: none; }
 .foot { text-align: center; padding: 4px 16px 36px; }
 .foot p { margin: 4px 0; font-weight: 600; }
 .foot a { color: var(--red); font-weight: 800; }
-.visits {
-  display: inline-block; margin: 10px 0 6px !important; padding: 6px 16px; border-radius: 999px;
-  background: var(--ink); color: #fff3d8; font-family: 'Courier Prime', monospace; font-size: .95rem;
-  box-shadow: 3px 3px 0 var(--red);
-}
-.visits[hidden] { display: none; }
-.visits b { font-size: 1.05rem; letter-spacing: 1px; }
 .foot__small { font-size: .85rem; color: var(--ink-soft); }
 
 .toast {
@@ -165,6 +166,8 @@ body.fmt-url .only-b64 { display: none; }
 /* ---------- responsive ---------- */
 @media (max-width: 640px) {
   .hero { padding-top: 72px; }
+  .top-actions { left: 16px; justify-content: flex-end; }
+  .visits { margin-right: auto; padding: 0 10px; }
   .hero__inner { flex-direction: column; text-align: center; gap: 16px; }
   .hero__mascot { width: 140px; }
   .hero__sun { width: 220px; top: 50px; transform: translateX(-50%); }
